@@ -1,0 +1,19 @@
+{
+    "username": "testwork@free.com", 
+    "environment": "developer", 
+    "project_name": "picklist", 
+    "workspace": "D:\\Workspace\\training", 
+    "org_url": "", 
+    "namespace": "", 
+    "id": "WOMNJ8K91X9ESI7ZBU8FP93OCEWL0DE9", 
+    "metadata_container": "1dc28000000mzTAAAY", 
+    "subscription": [
+        "ApexClass", 
+        "ApexComponent", 
+        "ApexPage", 
+        "ApexTrigger", 
+        "CustomObject", 
+        "Profile", 
+        "StaticResource"
+    ]
+}

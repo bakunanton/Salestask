@@ -1,0 +1,54 @@
+{
+    "Product_page.page": {
+        "createdById": "00528000003VNInAAO", 
+        "createdByName": "Anton Bakun", 
+        "createdDate": "2016-07-04 22:07:38", 
+        "fileName": "unpackaged/pages/Product_page.page", 
+        "fullName": "Product_page", 
+        "id": "06628000005CBgCAAW", 
+        "lastModifiedById": "00528000003VNInAAO", 
+        "lastModifiedByName": "Anton Bakun", 
+        "lastModifiedDate": "2016-07-06 03:10:09", 
+        "mmState": "clean", 
+        "type": "ApexPage"
+    }, 
+    "in_stock_trigger.trigger": {
+        "createdById": "00528000003VNInAAO", 
+        "createdByName": "Anton Bakun", 
+        "createdDate": "2016-07-05 03:18:58", 
+        "fileName": "unpackaged/triggers/in_stock_trigger.trigger", 
+        "fullName": "in_stock_trigger", 
+        "id": "01q28000000KayBAAS", 
+        "lastModifiedById": "00528000003VNInAAO", 
+        "lastModifiedByName": "Anton Bakun", 
+        "lastModifiedDate": "2016-07-05 03:32:52", 
+        "mmState": "clean", 
+        "type": "ApexTrigger"
+    }, 
+    "pickList.cls": {
+        "createdById": "00528000003VNInAAO", 
+        "createdByName": "Anton Bakun", 
+        "createdDate": "2016-07-08 14:30:38", 
+        "fileName": "unpackaged/classes/pickList.cls", 
+        "fullName": "pickList", 
+        "id": "01p28000008hrcMAAQ", 
+        "lastModifiedById": "00528000003VNInAAO", 
+        "lastModifiedByName": "Anton Bakun", 
+        "lastModifiedDate": "2016-07-08 14:30:38", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }, 
+    "productCtrl.cls": {
+        "createdById": "00528000003VNInAAO", 
+        "createdByName": "Anton Bakun", 
+        "createdDate": "2016-07-04 21:46:58", 
+        "fileName": "unpackaged/classes/productCtrl.cls", 
+        "fullName": "productCtrl", 
+        "id": "01p28000008hBNqAAM", 
+        "lastModifiedById": "00528000003VNInAAO", 
+        "lastModifiedByName": "Anton Bakun", 
+        "lastModifiedDate": "2016-07-06 03:08:16", 
+        "mmState": "clean", 
+        "type": "ApexClass"
+    }
+}
