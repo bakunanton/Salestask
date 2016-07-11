@@ -1,0 +1,108 @@
+{
+    "properties": [], 
+    "externalReferences": [], 
+    "innerClasses": [], 
+    "interfaces": [], 
+    "constructors": [
+        {
+            "modifiers": [
+                "public"
+            ], 
+            "name": "pickList", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 8, 
+                "line": 5
+            }, 
+            "type": null
+        }
+    ], 
+    "namespace": null, 
+    "name": "pickList", 
+    "tableDeclaration": {
+        "type": "pickList", 
+        "modifiers": [
+            "public"
+        ], 
+        "references": [], 
+        "location": {
+            "column": 14, 
+            "line": 1
+        }, 
+        "name": "pickList"
+    }, 
+    "key": "01p28000008hrcMAAQ", 
+    "variables": [
+        {
+            "type": "Boolean", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 21, 
+                "line": 10
+            }, 
+            "name": "typeObj"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 11
+            }, 
+            "name": "objList"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 12
+            }, 
+            "name": "GlobalMap"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 41, 
+                "line": 13
+            }, 
+            "name": "Obj"
+        }, 
+        {
+            "type": "DescribeSObjectResult", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 51, 
+                "line": 14
+            }, 
+            "name": "ObjDesc"
+        }
+    ], 
+    "id": "01p28000008hrcMAAQ", 
+    "methods": [
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getAllObjects", 
+            "parameters": [], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 8
+            }, 
+            "returnType": "String", 
+            "type": null
+        }
+    ]
+}

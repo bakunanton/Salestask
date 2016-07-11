@@ -1,45 +1,31 @@
 public class pickList {
-    public Boolean typeObj {
-        get;
-        set;
-    }
-
-    public Map<String,String> objMap =  new Map<String,String>(){
-        get;
-        set;
-    }
+ 
 
 
+public pickList(){}
 
    @RemoteAction
     public static String getAllObjects() {
-        ResponseModel response;
-
         try {
+            Boolean typeObj;
+            List<String> objList = new List<String>(); 
             Map<String, Schema.SObjectType> GlobalMap = Schema.getGlobalDescribe();
-            String labelName; 
                 for (Schema.SObjectType Obj : GlobalMap.values()) {
                      Schema.DescribeSObjectResult ObjDesc = Obj.getDescribe();
                      system.debug('Object Name: ' + ObjDesc.getName());
                      system.debug(ObjDesc.isCustom());
                      if(ObjDesc.isCustom() == typeObj){
-                        objMap.put(getLable(),getName());
-                        la                        
+                        objList.add(ObjDesc.getName());                        
                      }else{
-                        objMap.put(getLable(),getName());   
+                        objList.add(ObjDesc.getName()); 
                      }
-
                  }
-                 for  
-
-                 return JSON.serialize(response);
-}
+                                  return JSON.serialize(objList);
         
-        } catch (Exception e) {
-            SCH_ExceptionHandler.processException(e, NAMESPACE_PREFIX, CLASS_NAME);
-            response = new ResponseModel(e.getMessage() + ' ' + e.getStackTraceString(), false);
+        } catch (Exception ex) {
+           return JSON.serialize(ex);
         }
 
-        return JSON.serialize(response);
+        
     }
 }
