@@ -1,5 +1,19 @@
 {
-    "properties": [], 
+    "properties": [
+        {
+            "modifiers": [
+                "private"
+            ], 
+            "name": "typeObj", 
+            "visibility": "PRIVATE", 
+            "references": [], 
+            "location": {
+                "column": 13, 
+                "line": 2
+            }, 
+            "type": "Boolean"
+        }
+    ], 
     "externalReferences": [], 
     "innerClasses": [], 
     "interfaces": [], 
@@ -13,8 +27,8 @@
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
-                "column": 8, 
-                "line": 3
+                "column": 12, 
+                "line": 7
             }, 
             "type": null
         }
@@ -40,8 +54,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 21, 
-                "line": 8
+                "column": 48, 
+                "line": 10
             }, 
             "name": "typeObj"
         }, 
@@ -51,7 +65,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 9
+                "line": 12
             }, 
             "name": "objList"
         }, 
@@ -61,7 +75,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 10
+                "line": 13
             }, 
             "name": "GlobalMap"
         }, 
@@ -71,7 +85,7 @@
             "references": [], 
             "location": {
                 "column": 41, 
-                "line": 11
+                "line": 14
             }, 
             "name": "Obj"
         }, 
@@ -81,7 +95,7 @@
             "references": [], 
             "location": {
                 "column": 51, 
-                "line": 12
+                "line": 15
             }, 
             "name": "ObjDesc"
         }
@@ -94,12 +108,17 @@
                 "public"
             ], 
             "name": "getAllObjects", 
-            "parameters": [], 
+            "parameters": [
+                {
+                    "type": "Boolean", 
+                    "name": "typeObj"
+                }
+            ], 
             "visibility": "PUBLIC", 
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 6
+                "line": 10
             }, 
             "returnType": "String", 
             "type": null

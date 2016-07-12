@@ -1,11 +1,14 @@
 public class pickList {
+    Boolean typeObj {
+        get;
+        set;
+    }
 
-public pickList(){}
+    public pickList(){}
 
    @RemoteAction
-    public static String getAllObjects() {
+    public static String getAllObjects(Boolean typeObj) {
         try {
-            Boolean typeObj = true ;
             String[] objList = new String[] {};
             Map<String, Schema.SObjectType> GlobalMap = Schema.getGlobalDescribe();
                 for (Schema.SObjectType Obj : GlobalMap.values()) {

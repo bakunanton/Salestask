@@ -30,18 +30,6 @@
                 "children": [], 
                 "select": false, 
                 "cls": ""
-            }, 
-            {
-                "leaf": true, 
-                "title": "productCtrl", 
-                "checked": false, 
-                "id": "ApexClass.productCtrl", 
-                "text": "productCtrl", 
-                "level": 2, 
-                "isFolder": false, 
-                "children": [], 
-                "select": false, 
-                "cls": ""
             }
         ], 
         "select": false, 
@@ -90,18 +78,6 @@
             "metaFile": true
         }, 
         "children": [
-            {
-                "leaf": true, 
-                "title": "Product_page", 
-                "checked": false, 
-                "id": "ApexPage.Product_page", 
-                "text": "Product_page", 
-                "level": 2, 
-                "isFolder": false, 
-                "children": [], 
-                "select": false, 
-                "cls": ""
-            }, 
             {
                 "leaf": true, 
                 "title": "pickListPage", 
