@@ -49,9 +49,11 @@ public class pickList {
     @RemoteAction
     public static String getAllRecordInField(String nameObject,String nameField){
         try{
+            System.debug(nameObject);
+            System.debug(nameField);
             List<SObject> fieldRec = new List<SObject>();
             String[] recordField = new String[] {};
-            String que ='SELECT ID,' + nameField + ' FROM ' + nameObject;
+            String que ='SELECT ' + nameField + ' FROM ' + nameObject;
             fieldRec = Database.query(que);
             System.debug(fieldRec);
             return JSON.serialize(fieldRec);

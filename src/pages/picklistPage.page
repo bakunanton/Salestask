@@ -4,64 +4,94 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
 	</head>
 	<body ng-app="pageListApp" ng-controller="pickListCtrl">
-		<div class="slds-grid">
-			<div class="slds-col">
-				<p>Select a Custom or Standard Objects:</p>
-				<select ng-model="selectedType">
-					<option ng-repeat="typ in typs">{{typ}}</option>
-				</select>
-				<h1>You selected: {{selectedType}}</h1>
-				<button ng-click="getAllObjects(selectedType)">get Objects</button>
+	<div class="slds-grid">
+	<div class="slds-col--padded"></div>
+	<div class="slds-col--padded">
+	<div class="slds-form--horizontal">
+		<div class="slds-form-element" >
+			<label class="slds-form-element__label" for="select-01">Select Custom or Standart Objects</label>
+				<div class="slds-form-element__control">
+					<select class="slds-select" ng-model="selectedType" ng-change="getAllObjects(selectedType)">
+						<option ng-repeat="typ in typs">{{typ}}</option>
+					</select>
+				</div>
+		</div>		
+		<div class="slds-form-element"  ng-hide = "!selectedType">
+			<label class="slds-form-element__label" for="select-01">Select Objects</label>
+				<div class="slds-form-element__control">
+					<select class="slds-select" ng-model="selectedObject" ng-change="getAllFieldApiName(selectedObject)">
+						<option ng-repeat="obj in objects">{{obj}}</option>
+					</select>
+		    	</div>
 			</div>
-			<div class="slds-col">
-			<select ng-model="selectedObject">
-				<option ng-repeat="obj in objects">{{obj}}</option>
-			</select>
-			<h1>You selected: {{selectedObject}}</h1>
-			<button ng-click="getAllFieldApiName(selectedObject)">get Fields Name</button>
+		<div class="slds-form-element"  ng-hide = "!selectedObject">
+			<label class="slds-form-element__label" for="select-01">Select Objects Field</label>
+				<div class="slds-form-element__control">
+					<select  class="slds-select" ng-model="selectedField" ng-change="getRecordInField(selectedObject,selectedField)">
+						<option ng-repeat="objn in objectsName">{{objn}}</option>
+				</select>
+				</div>
 		</div>
-		<div class="slds-col"><select ng-model="selectedField">
-			<option ng-repeat="objn in objectsName">{{objn}}</option>
-		</select>
-	<h1>You selected: {{selectedField}}</h1></div>
-	<button ng-click="getAllRecordInField(selectedObject,selectedField)">Query</button>
 </div>
-<div class="slds-grid">
-	<div class="slds-col">tableFielValues</div>
 </div>
+<div class="slds-col--padded"></div>
+</div>
+	<div class="slds-grid" ng-hide = "!selectedField" >
+		<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+			 <thead>
+			  <tr class="slds-text-heading--label">
+			   <th scope="col" title="Opportunity Name">
+        			<div class="slds-truncate">Opportunity Name</div>
+     		   </th>
+      			<th scope="col" title="Account Name">
+        			<div class="slds-truncate">Account Name</div>
+      			</th>
+              </tr>
+             </thead>
+             <tbody>
+             	<tr>
+             		<th scope="row" data-label="Opportunity Name" title="Cloudhub">
+        				<div class="slds-truncate">Cloudhub</div>
+      				</th>
+      				<td data-label="Account Name" title="Cloudhub">
+        				<div class="slds-truncate">Cloudhub</div>
+      				</td>
+             	</tr>
+             </tbody>
+		</table>
+	</div>
 <script type="text/javascript">
 var app = angular.module("pageListApp", []);
 app.controller("pickListCtrl", ["$scope", function ($scope) {
-$scope.typs = ["Custom", "Standart"];
-$scope.objects = [];
-$scope.objectsName=[];
-$scope.objectsNameFieldRecord=[];
+	$scope.typs = ["Custom", "Standart"];
+	$scope.objects = [];
+	$scope.objectsName=[];
+	$scope.objectsNameFieldRecord=[];
 $scope.getAllObjects = function (selectedType) {
-var typeObj;
-if (angular.equals(selectedType, "Custom") == true) {
-typeObj = true;
-}
-else {
-typeObj = false;
-}
-console.log(typeObj);
-Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllObjects}', typeObj, function (result, event) {
-console.log(result);
-$scope.objects = JSON.parse(result);
-$scope.$apply();
-}, {escape: false});
+	var typeObj;
+	if (angular.equals(selectedType, "Custom") == true) {
+		typeObj = true;
+	}else {
+		typeObj = false;
+	}
+	console.log(typeObj);
+	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllObjects}',typeObj, function (result, event) {
+	console.log(result);
+		$scope.objects = JSON.parse(result);
+		$scope.$apply();
+	}, {escape: false});
 }
 $scope.getAllFieldApiName = function(selectedObject){
-Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllFields}', selectedObject, function (result, event) {
-$scope.objectsName = JSON.parse(result);
-console.log()
+	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllFields}', selectedObject, function (result, event) {
+	$scope.objectsName = JSON.parse(result);
+	console.log()
 $scope.$apply($scope.objectsName);
 	},{escape:false});
 }
 $scope.getRecordInField = function(selectedObject,selectedField){
 	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllRecordInField}', selectedObject,selectedField, function (result, event) {
-		console.log(result);
 		$scope.objectsNameFieldRecord = JSON.parse(result);
+		console.log($scope.objectsNameFieldRecord);
 		$scope.$apply();
 	},{escape:false});
 	}
