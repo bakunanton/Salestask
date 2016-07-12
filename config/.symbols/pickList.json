@@ -1,19 +1,5 @@
 {
-    "properties": [
-        {
-            "modifiers": [
-                "private"
-            ], 
-            "name": "typeObj", 
-            "visibility": "PRIVATE", 
-            "references": [], 
-            "location": {
-                "column": 13, 
-                "line": 2
-            }, 
-            "type": "Boolean"
-        }
-    ], 
+    "properties": [], 
     "externalReferences": [], 
     "innerClasses": [], 
     "interfaces": [], 
@@ -28,7 +14,7 @@
             "references": [], 
             "location": {
                 "column": 12, 
-                "line": 7
+                "line": 3
             }, 
             "type": null
         }
@@ -55,7 +41,7 @@
             "references": [], 
             "location": {
                 "column": 48, 
-                "line": 10
+                "line": 6
             }, 
             "name": "typeObj"
         }, 
@@ -65,7 +51,7 @@
             "references": [], 
             "location": {
                 "column": 22, 
-                "line": 12
+                "line": 8
             }, 
             "name": "objList"
         }, 
@@ -75,7 +61,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 13
+                "line": 9
             }, 
             "name": "GlobalMap"
         }, 
@@ -85,7 +71,7 @@
             "references": [], 
             "location": {
                 "column": 41, 
-                "line": 14
+                "line": 10
             }, 
             "name": "Obj"
         }, 
@@ -95,9 +81,119 @@
             "references": [], 
             "location": {
                 "column": 51, 
-                "line": 15
+                "line": 11
             }, 
             "name": "ObjDesc"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 46, 
+                "line": 30
+            }, 
+            "name": "nameObject"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 32
+            }, 
+            "name": "objFieldApiName"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 45, 
+                "line": 33
+            }, 
+            "name": "schemaMap"
+        }, 
+        {
+            "type": "SObjectType", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 32, 
+                "line": 34
+            }, 
+            "name": "leadSchema"
+        }, 
+        {
+            "type": "Map", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 46, 
+                "line": 35
+            }, 
+            "name": "fieldMap"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 25, 
+                "line": 36
+            }, 
+            "name": "fieldName"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 53, 
+                "line": 50
+            }, 
+            "name": "nameObject"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 71, 
+                "line": 50
+            }, 
+            "name": "nameField"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 27, 
+                "line": 52
+            }, 
+            "name": "fieldRec"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 53
+            }, 
+            "name": "recordField"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 20, 
+                "line": 54
+            }, 
+            "name": "que"
         }
     ], 
     "id": "01p28000008hrcMAAQ", 
@@ -118,7 +214,53 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 10
+                "line": 6
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getAllFields", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "nameObject"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 30
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getAllRecordInField", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "nameObject"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "nameField"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 50
             }, 
             "returnType": "String", 
             "type": null

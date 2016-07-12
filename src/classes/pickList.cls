@@ -1,8 +1,4 @@
 public class pickList {
-    Boolean typeObj {
-        get;
-        set;
-    }
 
     public pickList(){}
 
@@ -28,4 +24,40 @@ public class pickList {
 
         
     }
+
+
+    @RemoteAction
+    public static String getAllFields(String nameObject){
+        try{
+            String[] objFieldApiName = new String[] {};
+            Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
+            Schema.SObjectType leadSchema = schemaMap.get(nameObject);
+            Map<String, Schema.SObjectField> fieldMap = leadSchema.getDescribe().fields.getMap();
+            for (String fieldName: fieldMap.keySet()) { 
+                System.debug(fieldName); 
+                objFieldApiName.add(fieldName);
+                //It provides to get the object fields label.
+                //String fieldLabel = fieldMap.get(fieldName).getDescribe().getLabel();
+        }
+         return JSON.serialize(objFieldApiName);
+        }catch (Exception ex) {
+           return JSON.serialize(ex);
+        }
+    }
+
+    
+    @RemoteAction
+    public static String getAllRecordInField(String nameObject,String nameField){
+        try{
+            List<SObject> fieldRec = new List<SObject>();
+            String[] recordField = new String[] {};
+            String que ='SELECT ' + nameField + ' FROM ' + nameObject;
+            fieldRec = Database.query(que);
+            return JSON.serialize(recordField);
+
+            }catch(Exception ex) {
+                    return JSON.serialize(ex);
+            }
+    }    
+
 }

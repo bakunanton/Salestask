@@ -1,61 +1,73 @@
-<apex:page showHeader="false" sidebar="false" controller="pickList" applyHtmlTag="true" >
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css"></link>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
-    </head>
-    <body ng-app = "pageListApp" ng-controller = "pickListCtrl">
-        <div class="slds-grid">
-         <div class="slds-col">
-         <p>Select a Custom(true) or Standard(false):</p>
-         <select ng-model="selectedType">
-        <option ng-repeat = "typ in typs" >{{typ}}</option>
-        </select>
-        <h1>You selected: {{selectedType}}</h1>
-        
-       
-        <select ng-model="selectedObject">
-        <option ng-repeat = "obj in objects" >{{obj}}</option>
-        </select>
-        <h1>You selected: {{selectedObject}}</h1>
-        <button ng-click="getAllObjects(selectedType)">get</button>
-         </div>
+<apex:page showHeader="false" sidebar="false" controller="pickList" applyHtmlTag="true">
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css"></link>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js"></script>
+	</head>
+	<body ng-app="pageListApp" ng-controller="pickListCtrl">
+		<div class="slds-grid">
+			<div class="slds-col">
+				<p>Select a Custom or Standard Objects:</p>
+				<select ng-model="selectedType">
+					<option ng-repeat="typ in typs">{{typ}}</option>
+				</select>
+				<h1>You selected: {{selectedType}}</h1>
+				<button ng-click="getAllObjects(selectedType)">get Objects</button>
+			</div>
+			<div class="slds-col">
+			<select ng-model="selectedObject">
+				<option ng-repeat="obj in objects">{{obj}}</option>
+			</select>
+			<h1>You selected: {{selectedObject}}</h1>
+			<button ng-click="getAllFieldApiName(selectedObject)">get Fields Name</button>
+		</div>
+		<div class="slds-col"><select ng-model="selectedField">
+			<option ng-repeat="objn in objectsName">{{objn}}</option>
+		</select>
+	<h1>You selected: {{selectedField}}</h1></div>
+</div>
+<div class="slds-grid">
+	<div class="slds-col">tableFielValues</div>
+</div>
+<script type="text/javascript">
+var app = angular.module("pageListApp", []);
+app.controller("pickListCtrl", ["$scope", function ($scope) {
+$scope.typs = ["Custom", "Standart"];
+$scope.objects = [];
+$scope.objectsName=[];
+$scope.objectsNameFieldRecord=[];
+$scope.getAllObjects = function (selectedType) {
+var typeObj;
+if (angular.equals(selectedType, "Custom") == true) {
+typeObj = true;
+}
+else {
+typeObj = false;
+}
+console.log(typeObj);
+Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllObjects}', typeObj, function (result, event) {
+console.log(result);
+$scope.objects = JSON.parse(result);
+$scope.$apply();
+}, {escape: false});
+}
+$scope.getAllFieldApiName = function(selectedObject){
+Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllFields}', selectedObject, function (result, event) {
+$scope.objectsName = JSON.parse(result);
+console.log()
+$scope.$apply($scope.objectsName);
+	},{escape:false});
+}
+$scope.getRecordInField = function(selectedObject,selectedField){
+	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllRecordInField}', selectedObject,selectedField, function (result, event) {
+		console.log(result);
+		$scope.objectsNameFieldRecord = JSON.parse(result);
+		$scope.$apply();
+	},{escape:false});
+	}
+}
 
-            <div class="slds-col">pickObject</div>
-            <div class="slds-col">picField</div>
-        </div>
-        <div class="slds-grid">
-            <div class="slds-col">tableFielValues</div>
-        </div>
-
-        <script type="text/javascript">
-         var app = angular.module("pageListApp", []); 
- app.controller("pickListCtrl", ["$scope", function($scope) {
-  $scope.typs=["true","false"];
- 
-  $scope.objects = [];
-  $scope.selectedObject="";
- 
-   $scope.getAllObjects = function(selectedType) {
-   		var typeObj;
-   	 if(angular.equals(selectedType,"true")==true)
-  	 {
-         typeObj = true;
-  	 }else{
-  		 typeObj = false;
-  	 }
-  		console.log(typeObj);
-     Visualforce.remoting.Manager.invokeAction(
-     '{!$RemoteAction.pickList.getAllObjects}', typeObj, 
-     function(result, event) {
-        console.log(result);
-        var str;
-
-       $scope.objects = JSON.parse(result);
-       $scope.$apply();
-     },{ escape: false });
-     }
-     console.log( $scope.objects);
-   }]);
-        </script>
-    </body>
+console.log($scope.objects);
+}]);
+</script>
+</body>
 </apex:page>
