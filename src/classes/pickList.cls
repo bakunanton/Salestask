@@ -51,10 +51,11 @@ public class pickList {
         try{
             List<SObject> fieldRec = new List<SObject>();
             String[] recordField = new String[] {};
-            String que ='SELECT ' + nameField + ' FROM ' + nameObject;
+            String que ='SELECT ID,' + nameField + ' FROM ' + nameObject;
             fieldRec = Database.query(que);
-            return JSON.serialize(recordField);
-
+            System.debug(fieldRec);
+            return JSON.serialize(fieldRec);
+            
             }catch(Exception ex) {
                     return JSON.serialize(ex);
             }

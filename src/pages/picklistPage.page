@@ -24,6 +24,7 @@
 			<option ng-repeat="objn in objectsName">{{objn}}</option>
 		</select>
 	<h1>You selected: {{selectedField}}</h1></div>
+	<button ng-click="getAllRecordInField(selectedObject,selectedField)">Query</button>
 </div>
 <div class="slds-grid">
 	<div class="slds-col">tableFielValues</div>
@@ -64,9 +65,6 @@ $scope.getRecordInField = function(selectedObject,selectedField){
 		$scope.$apply();
 	},{escape:false});
 	}
-}
-
-console.log($scope.objects);
 }]);
 </script>
 </body>
