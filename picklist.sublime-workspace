@@ -4,8 +4,84 @@
 		"selected_items":
 		[
 			[
+				"th",
+				"thead	Tag"
+			],
+			[
+				"Fi",
+				"fieldRec"
+			],
+			[
+				"I",
+				"Integer	[Standard Apex Class]"
+			],
+			[
+				"S",
+				"System	[Standard Apex Class]"
+			],
+			[
+				"fi",
+				"fields"
+			],
+			[
+				"L",
+				"List	[Standard Apex Class]"
+			],
+			[
+				"v",
+				"PUBLIC valueOf(Object o) 	String"
+			],
+			[
+				"String",
+				"String	[Standard Apex Class]"
+			],
+			[
+				"Ob",
+				"Object"
+			],
+			[
+				"se",
+				"selectedField"
+			],
+			[
+				"n",
+				"nameField"
+			],
+			[
+				"t",
+				"tbody	Tag"
+			],
+			[
+				"de",
+				"debug(Anydatatype_msg)"
+			],
+			[
 				"fie",
-				"fieldName"
+				"fieldRec"
+			],
+			[
+				"So",
+				"SObject	[Standard Apex Class]"
+			],
+			[
+				"re",
+				"RemoteAction"
+			],
+			[
+				"Da",
+				"Database	[Standard Apex Class]"
+			],
+			[
+				"r",
+				"recordField"
+			],
+			[
+				"na",
+				"nameField"
+			],
+			[
+				"selected",
+				"selectedObject"
 			],
 			[
 				"o",
@@ -18,14 +94,6 @@
 			[
 				"type",
 				"typeObj"
-			],
-			[
-				"t",
-				"typeObj"
-			],
-			[
-				"se",
-				"select	Tag"
 			],
 			[
 				"Js",
@@ -55,18 +123,15 @@
 			"file": "src/classes/pickList.cls",
 			"settings":
 			{
-				"buffer_size": 1786,
+				"buffer_size": 2612,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "<apex:page showHeader=\"false\" sidebar=\"false\" controller=\"pickList\" applyHtmlTag=\"true\">\n	<head>\n		<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css\"></link>\n		<script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.min.js\"></script>\n	</head>\n	<body ng-app=\"pageListApp\" ng-controller=\"pickListCtrl\">\n		<div class=\"slds-grid\">\n			<div class=\"slds-col\">\n				<p>Select a Custom(true) or Standard(false):</p>\n				<select ng-model=\"selectedType\">\n					<option ng-repeat=\"typ in typs\">{{typ}}</option>\n				</select>\n				<h1>You selected: {{selectedType}}</h1>\n				<select ng-model=\"selectedObject\">\n					<option ng-repeat=\"obj in objects\">{{obj}}</option>\n				</select>\n				<h1>You selected: {{selectedObject}}</h1>\n				<button ng-click=\"getAllObjects(selectedType)\">get</button>\n			</div>\n			<div class=\"slds-col\">pickObject</div>\n			<div class=\"slds-col\">picField</div>\n		</div>\n		<div class=\"slds-grid\">\n			<div class=\"slds-col\">tableFielValues</div>\n		</div>\n		<script type=\"text/javascript\">\n		var app = angular.module(\"pageListApp\", []);\n		app.controller(\"pickListCtrl\", [\"$scope\", function ($scope) {\n		$scope.typs = [\"true\", \"false\"];\n		$scope.objects = [];\n		$scope.getAllObjects = function (selectedType) {\n		var typeObj;\n		if (angular.equals(selectedType, \"true\") == true) {\n		typeObj = true;\n		}\n		else {\n		typeObj = false;\n		}\n		console.log(typeObj);\n		Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllObjects}', typeObj, function (result, event) {\n		console.log(result);\n		var str;\n		$scope.objects = JSON.parse(result);\n		$scope.$apply();\n		}, {\n		escape: false\n		});\n		}\n		$scope\n		console.log($scope.objects);\n		}]);\n		</script>\n	</body>\n</apex:page>",
 			"file": "src/pages/picklistPage.page",
-			"file_size": 2186,
-			"file_write_time": 131127837116243323,
 			"settings":
 			{
-				"buffer_size": 1882,
+				"buffer_size": 2472,
 				"line_ending": "Windows"
 			}
 		}
@@ -116,16 +181,15 @@
 	"expanded_folders":
 	[
 		"/D/Workspace/training/picklist",
-		"/D/Workspace/training/picklist/src",
-		"/D/Workspace/training/picklist/src/classes",
-		"/D/Workspace/training/picklist/src/pages"
+		"/D/Workspace/training/picklist/src"
 	],
 	"file_history":
 	[
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
+		"/D/wsdl.jsp.xml",
 		"/D/Workspace/training/picklist/src/pages/picklistPage.page-meta.xml",
 		"/D/Workspace/training/picklist/src/classes/productCtrl.cls",
 		"/D/Workspace/training/picklist/src/classes/pickList.cls-meta.xml",
-		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
 		"/D/Sublime Text 3/Packages/Package Control.sublime-package"
 	],
 	"find":
@@ -173,15 +237,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1786,
+						"buffer_size": 2612,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1730,
-								1730
+								2612,
+								2612
 							]
 						],
 						"settings":
@@ -191,7 +255,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 324.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -203,15 +267,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1882,
+						"buffer_size": 2472,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1061,
-								1061
+								821,
+								821
 							]
 						],
 						"settings":
