@@ -1,12 +1,12 @@
 {
     "username": "testwork@free.com", 
-    "environment": "developer", 
     "project_name": "picklist", 
-    "workspace": "D:\\Workspace\\training", 
     "org_url": "", 
     "namespace": "", 
+    "metadata_container": "1dc28000000nC1PAAU", 
+    "environment": "developer", 
+    "workspace": "D:\\Workspace\\training", 
     "id": "WOMNJ8K91X9ESI7ZBU8FP93OCEWL0DE9", 
-    "metadata_container": "1dc28000000n9jIAAQ", 
     "subscription": [
         "ApexClass", 
         "ApexComponent", 
