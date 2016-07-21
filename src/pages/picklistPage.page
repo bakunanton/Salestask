@@ -47,9 +47,9 @@
     		<div class = "col-md-2 control-label" >
     			<input type="Search" class="form-control" ng-model="searchIn"></input>
     		</div>
-    		<div class="col-md-2 conntrol-label">
-    			<button class="btn btn-primary btn-md" ng-click = "">Search</button>
-    		</div>
+    		<!-- <div class="col-md-2 conntrol-label">
+    			<button type="button" class="btn btn-primary" ng-click = "getSortlist(selectedObject, key, selectedSort, searchIn)">Search</button>
+    		</div> -->
     	</div>
 	</fieldset>
 	</form>
@@ -58,7 +58,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th ng-repeat="(key,value) in objectsName[0]" ><a href ="#"  value="{{key}}" ng-click = "getSortlist(selectedObject, key, selectedSort)" >{{key}}</a></th> 
+        <th ng-repeat="(key,value) in objectsName[0]" ><a href ="#"  value="{{key}}" ng-click = "getSortlist(selectedObject, key, selectedSort, searchIn)" >{{key}}</a></th> 
       </tr>
     </thead>
     <tbody>
@@ -99,11 +99,16 @@ $scope.getAllFieldApiName = function (selectedObject) {
         $scope.$apply($scope.objectsName);
     }, { escape: false});
 }
-$scope.getSortlist = function( selectedObject, key, selectedSort){
+$scope.getSortlist = function( selectedObject, key, selectedSort, searchIn){
 	 console.log(selectedObject);
 	 console.log(key);
 	 console.log(selectedSort);
-	 Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getSortlist}', selectedObject, key, selectedSort, function( result, event){
+	 console.log(searchIn);
+	 if(angular.isUndefined(searchIn)){
+	 	searchIn = 'null';
+	 }
+	 console.log(searchIn);
+	 Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getSortlist}', selectedObject, key, selectedSort, searchIn, function( result, event){
 	 	 console.log(result);
       	$scope.objectsName = JSON.parse(result);
         $scope.$apply(); 

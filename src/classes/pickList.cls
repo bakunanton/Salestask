@@ -52,8 +52,9 @@ public class pickList {
     }
 
     @RemoteAction
-    public static String getSortlist(String nameObject, String nameField, String nameSorttogle){
+    public static String getSortlist(String nameObject, String nameField, String nameSorttogle, String searchIn){
         try{
+            System.debug(searchIn);
             String numberPage = '1';
             List<Object> objFieldApiName = new List<Object>();
             Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
@@ -66,8 +67,17 @@ public class pickList {
             String fields = String.join(objFieldApiName, ',');
             Integer listSize = 7;
             List<SObject> fieldRec = new List<SObject>();
-            String query = 'SELECT ' + fields + ' FROM ' + nameObject + ' ORDER BY ' + nameField + ' ' + nameSorttogle + ' LIMIT ' + listSize + ' OFFSET ' + numberPage; 
-            fieldRec = Database.query(query);
+            System.debug('before Sooql query');
+            if(searchIn.equals('null')){
+                String query = 'SELECT ' + fields + ' FROM ' + nameObject + ' ORDER BY ' + nameField + ' ' + nameSorttogle + ' LIMIT ' + listSize + ' OFFSET ' + numberPage; 
+                fieldRec = Database.query('no search:' + query);
+            }else{
+                String query = 'SELECT ' + fields + ' FROM ' + nameObject + ' WHERE ' + nameField +' LIKE ' + '\'%' + searchIn + '%\'' + ' ORDER BY ' + nameField + ' ' + nameSorttogle + ' LIMIT ' + listSize + ' OFFSET ' + numberPage;
+                System.debug('with search:' + query);
+                 fieldRec = Database.query( query);
+                }
+            System.debug('after sooql:' + searchIn);         
+            
             System.debug(fieldrec);
             return JSON.serialize(fieldRec);
         }catch(Exception ex) {
