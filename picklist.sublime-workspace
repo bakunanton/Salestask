@@ -4,16 +4,32 @@
 		"selected_items":
 		[
 			[
+				"field",
+				"fieldName"
+			],
+			[
+				"s",
+				"selectedField"
+			],
+			[
+				"sys",
+				"System"
+			],
+			[
+				"S",
+				"System	[Standard Apex Class]"
+			],
+			[
+				"is",
+				"PUBLIC isEmpty(String str) 	Boolean"
+			],
+			[
 				"b",
 				"button	Tag"
 			],
 			[
 				"se",
 				"selectedSort"
-			],
-			[
-				"s",
-				"selectedObject"
 			],
 			[
 				"ob",
@@ -26,10 +42,6 @@
 			[
 				"e",
 				"escape"
-			],
-			[
-				"S",
-				"String	[Standard Apex Class]"
 			],
 			[
 				"re",
@@ -163,22 +175,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/classes/pickList.cls",
-			"settings":
-			{
-				"buffer_size": 3208,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/pages/picklistPage.page",
-			"settings":
-			{
-				"buffer_size": 4939,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -224,10 +220,13 @@
 	},
 	"expanded_folders":
 	[
+		"/D/Workspace/training/picklist",
 		"/D/Workspace/training/picklist/src"
 	],
 	"file_history":
 	[
+		"/D/Workspace/training/picklist/src/classes/pickList.cls",
+		"/D/Workspace/training/picklist/src/pages/picklistPage.page",
 		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
 		"/D/wsdl.jsp.xml",
 		"/D/Workspace/training/picklist/src/pages/picklistPage.page-meta.xml",
@@ -274,67 +273,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/classes/pickList.cls",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3208,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1441,
-								1441
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 756.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/pages/picklistPage.page",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4939,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2716,
-								2716
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/MavensMate/sublime/lang/Visualforce.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

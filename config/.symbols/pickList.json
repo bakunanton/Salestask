@@ -63,14 +63,14 @@
                 "column": 45, 
                 "line": 9
             }, 
-            "name": "GlobalMap"
+            "name": "globalMap"
         }, 
         {
             "type": "SObjectType", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 41, 
+                "column": 37, 
                 "line": 10
             }, 
             "name": "Obj"
@@ -80,18 +80,18 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 54, 
+                "column": 46, 
                 "line": 11
             }, 
-            "name": "ObjDesc"
+            "name": "objDesc"
         }, 
         {
             "type": "String", 
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 46, 
-                "line": 30
+                "column": 50, 
+                "line": 28
             }, 
             "name": "nameObject"
         }, 
@@ -100,8 +100,8 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 26, 
-                "line": 33
+                "column": 22, 
+                "line": 30
             }, 
             "name": "objFieldApiName"
         }, 
@@ -111,7 +111,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 34
+                "line": 31
             }, 
             "name": "schemaMap"
         }, 
@@ -121,7 +121,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 35
+                "line": 32
             }, 
             "name": "leadSchema"
         }, 
@@ -131,7 +131,7 @@
             "references": [], 
             "location": {
                 "column": 46, 
-                "line": 36
+                "line": 33
             }, 
             "name": "fieldMap"
         }, 
@@ -141,7 +141,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 37
+                "line": 34
             }, 
             "name": "fieldName"
         }, 
@@ -150,10 +150,20 @@
             "modifiers": [], 
             "references": [], 
             "location": {
-                "column": 20, 
-                "line": 42
+                "column": 46, 
+                "line": 48
             }, 
-            "name": "fields"
+            "name": "nameObject"
+        }, 
+        {
+            "type": "String", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 65, 
+                "line": 48
+            }, 
+            "name": "nameField"
         }, 
         {
             "type": "LIST", 
@@ -161,9 +171,19 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 43
+                "line": 52
             }, 
             "name": "fieldRec"
+        }, 
+        {
+            "type": "LIST", 
+            "modifiers": [], 
+            "references": [], 
+            "location": {
+                "column": 22, 
+                "line": 53
+            }, 
+            "name": "recordField"
         }, 
         {
             "type": "String", 
@@ -171,7 +191,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 44
+                "line": 54
             }, 
             "name": "que"
         }, 
@@ -181,7 +201,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 55
+                "line": 79
             }, 
             "name": "nameObject"
         }, 
@@ -191,7 +211,7 @@
             "references": [], 
             "location": {
                 "column": 64, 
-                "line": 55
+                "line": 79
             }, 
             "name": "nameField"
         }, 
@@ -201,7 +221,7 @@
             "references": [], 
             "location": {
                 "column": 82, 
-                "line": 55
+                "line": 79
             }, 
             "name": "nameSorttogle"
         }, 
@@ -211,7 +231,7 @@
             "references": [], 
             "location": {
                 "column": 104, 
-                "line": 55
+                "line": 79
             }, 
             "name": "searchIn"
         }, 
@@ -221,7 +241,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 58
+                "line": 82
             }, 
             "name": "numberPage"
         }, 
@@ -231,7 +251,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 59
+                "line": 83
             }, 
             "name": "objFieldApiName"
         }, 
@@ -241,7 +261,7 @@
             "references": [], 
             "location": {
                 "column": 45, 
-                "line": 60
+                "line": 84
             }, 
             "name": "schemaMap"
         }, 
@@ -251,7 +271,7 @@
             "references": [], 
             "location": {
                 "column": 32, 
-                "line": 61
+                "line": 85
             }, 
             "name": "leadSchema"
         }, 
@@ -261,7 +281,7 @@
             "references": [], 
             "location": {
                 "column": 46, 
-                "line": 62
+                "line": 86
             }, 
             "name": "fieldMap"
         }, 
@@ -271,7 +291,7 @@
             "references": [], 
             "location": {
                 "column": 25, 
-                "line": 63
+                "line": 87
             }, 
             "name": "fieldName"
         }, 
@@ -281,7 +301,7 @@
             "references": [], 
             "location": {
                 "column": 20, 
-                "line": 67
+                "line": 91
             }, 
             "name": "fields"
         }, 
@@ -291,7 +311,7 @@
             "references": [], 
             "location": {
                 "column": 21, 
-                "line": 68
+                "line": 92
             }, 
             "name": "listSize"
         }, 
@@ -301,7 +321,7 @@
             "references": [], 
             "location": {
                 "column": 27, 
-                "line": 69
+                "line": 93
             }, 
             "name": "fieldRec"
         }, 
@@ -311,7 +331,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 72
+                "line": 96
             }, 
             "name": "query"
         }, 
@@ -321,7 +341,7 @@
             "references": [], 
             "location": {
                 "column": 24, 
-                "line": 75
+                "line": 99
             }, 
             "name": "query"
         }
@@ -354,7 +374,7 @@
                 "static", 
                 "public"
             ], 
-            "name": "getAllFields", 
+            "name": "getAllFieldsList", 
             "parameters": [
                 {
                     "type": "String", 
@@ -365,7 +385,32 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 30
+                "line": 28
+            }, 
+            "returnType": "String", 
+            "type": null
+        }, 
+        {
+            "modifiers": [
+                "static", 
+                "public"
+            ], 
+            "name": "getFieldsRec", 
+            "parameters": [
+                {
+                    "type": "String", 
+                    "name": "nameObject"
+                }, 
+                {
+                    "type": "String", 
+                    "name": "nameField"
+                }
+            ], 
+            "visibility": "PUBLIC", 
+            "references": [], 
+            "location": {
+                "column": 26, 
+                "line": 48
             }, 
             "returnType": "String", 
             "type": null
@@ -398,7 +443,7 @@
             "references": [], 
             "location": {
                 "column": 26, 
-                "line": 55
+                "line": 79
             }, 
             "returnType": "String", 
             "type": null

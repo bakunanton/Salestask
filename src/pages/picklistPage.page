@@ -34,23 +34,30 @@
     		</select>
   		</div>
 	</div>
-		<div class="form-group" ng-hide = "!selectedObject">
-  	<label class="col-md-4 control-label" for="selectbasic">Select Sort type</label>
+	<div class="form-group" ng-hide = "!selectedObject">
+  	<label class="col-md-4 control-label" for="selectbasic">Select Object Field</label>
   		<div class="col-md-4 control-label">
-  			<select  name="selectbasic" ng-model = "selectedSort" class="form-control"   ng-change ="toSort(selectedSort)">
-      			<option ng-repeat="srt in sort" value="{{srt.value}}"  >{{srt.name}}</option>
+  			<select  name="selectbasic" ng-model = "selectedField" class="form-control"  ng-change ="getAllFieldsInObj(selectedObject, selectedField)">
+      			<option ng-repeat="field in objectField" >{{field}}</option>
     		</select>
   		</div>
-  		</div>
-  		<div class="form-group"  ng-hide = "!selectedObject">
-  			<label class="col-md-4 control-label" for="selectbasic">Search</label>
-    		<div class = "col-md-2 control-label" >
-    			<input type="Search" class="form-control" ng-model="searchIn"></input>
-    		</div>
-    		<!-- <div class="col-md-2 conntrol-label">
+	</div>
+	<!-- <div class="form-group" ng-hide = "!selectedObject">
+	<label class="col-md-4 control-label" for="selectbasic">Select Sort type</label>
+		<div class="col-md-4 control-label">
+			<select  name="selectbasic" ng-model = "selectedSort" class="form-control"   ng-change ="toSort(selectedSort)">
+  			<option ng-repeat="srt in sort" value="{{srt.value}}"  >{{srt.name}}</option>
+		</select>
+		</div>
+		</div>
+		<div class="form-group"  ng-hide = "!selectedObject">
+			<label class="col-md-4 control-label" for="selectbasic">Search</label>
+		<div class = "col-md-2 control-label" >
+			<input type="Search" class="form-control" ng-model="searchIn"></input>
+		</div>
+    		<div class="col-md-2 conntrol-label">
     			<button type="button" class="btn btn-primary" ng-click = "getSortlist(selectedObject, key, selectedSort, searchIn)">Search</button>
     		</div> -->
-    	</div>
 	</fieldset>
 	</form>
 	<div class="container-fluid" ng-hide = "!selectedObject">
@@ -74,9 +81,8 @@ var app = angular.module("pageListApp", []);
 app.controller("pickListCtrl", ["$scope", function ($scope) {
 	$scope.typs = ["Custom", "Standart"];
 	$scope.sort = [{name:'Low to High', value:'ASC'},{name: 'High to Low ', value: 'DESC'}];
-	$scope.objects = [];
-	$scope.objectsName=[];
-	$scope.selectedField=[];
+	$scope.objectField = [];
+	$scope.objectsName = [];
 $scope.getAllObjects = function (selectedType) {
     var typeObj;
     if (angular.equals(selectedType, "Custom") == true) {
@@ -93,11 +99,17 @@ $scope.getAllObjects = function (selectedType) {
     }, { escape: false});
 }
 $scope.getAllFieldApiName = function (selectedObject) {
-    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllFields}', selectedObject, function (result, event) {
-        $scope.objectsName = JSON.parse(result);
-        console.log($scope.objectsName);
-        $scope.$apply($scope.objectsName);
+    Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getAllFieldsList}', selectedObject, function (result, event) {
+        $scope.objectField = JSON.parse(result);
+        console.log($scope.objectField);
+        $scope.$apply();
     }, { escape: false});
+}
+$scope.getAllFieldsInObj = function (selectedObject, selectedField) {
+	Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.pickList.getFieldsRec}', selectedObject, selectedField, function (result, event) {
+		$scope.objectsName = JSON.parse(result);
+		$scope.$apply();
+	}, { escape: false});
 }
 $scope.getSortlist = function( selectedObject, key, selectedSort, searchIn){
 	 console.log(selectedObject);
